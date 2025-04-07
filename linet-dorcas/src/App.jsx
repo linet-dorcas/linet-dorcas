@@ -1,17 +1,40 @@
-import { useState } from 'react'
-
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount]=useState(0);
+  const [inputValue, setInputValue] = useState('');
+  const [displayList, setDisplayList] = useState([]);
 
-  return(
-    <div>
-      <h2>Dynamic list item </h2>
-      <input type="text" ></input>
-      <button >Add item</button>
+  const addToList = () => {
+    if (inputValue.trim() !== '') {
+      setDisplayList([...displayList, inputValue]);
+      setInputValue();
+    }
+  };
+
+  return (
+    <div className="Container1">
+      <h1 classname ="textleft">Dynamic List Manager</h1>
+
+      <input
+        type="text"
+        placeholder="Enter an item"
+        className="input-list"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+
+      <button onClick={addToList}>Add</button>
+
+      <div className="Container2">
+        <ul>
+          {displayList.map((item, index) => (
+            <li key={index} className="list-item">{item}</li>
+          ))}
+        </ul>
+      </div>
     </div>
-    
-  )
+  );
 }
 
-export default App
+export default App;

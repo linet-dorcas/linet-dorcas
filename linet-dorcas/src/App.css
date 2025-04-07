@@ -1,6 +1,6 @@
 #root {
   max-width: 1280px;
-  margin: 0. auto;
+  margin: 0 auto;
   padding: 1rem;
   text-align: left;
 }
@@ -8,7 +8,7 @@
 .Add item {
   color:greenyellow ;
 }
-.h2 {
+.h1{
   color: aqua;
-  
+
 }
